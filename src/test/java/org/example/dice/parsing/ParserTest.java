@@ -42,4 +42,19 @@ public class ParserTest {
             fail();
         }
     }
+
+    @Test
+    public void failToParseANegativeNumberAsTheNumberOfFaces() {
+        String input = "-4";
+        try {
+            parser.parse(input);
+            fail();
+        }
+        catch (InvalidNumberOfFacesException exception) {
+            return;
+        }
+        catch (Exception exception) {
+            fail();
+        }
+    }
 }
