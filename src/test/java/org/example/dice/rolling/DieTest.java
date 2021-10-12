@@ -5,25 +5,25 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RollerTest {
+public class DieTest {
     @Test
     public void resultIsOneWhenTheRandomProviderProvidesItsMinimumValue() {
-        Roller roller = new Roller(() -> 0.0);
-        int result = roller.apply(6);
+        Die die = new Die(6, () -> 0.0);
+        int result = die.roll();
         assertEquals(1, result);
     }
 
     @Test
     public void resultIsTheNumberOfFacesWhenTheRandomProviderProvidesItsMaximumValue() {
-        Roller roller = new Roller(() -> 0.99999);
-        int result = roller.apply(6);
+        Die die = new Die(6, () -> 0.99999);
+        int result = die.roll();
         assertEquals(6, result);
     }
 
     @Test
     public void resultIsHalfTheNumberOfFacesWhenTheRandomProviderProvidesAMediumValue() {
-        Roller roller = new Roller(() -> 0.5);
-        int result = roller.apply(6);
+        Die die = new Die(6, () -> 0.5);
+        int result = die.roll();
         assertTrue(result == 3 || result == 4);
     }
 }
