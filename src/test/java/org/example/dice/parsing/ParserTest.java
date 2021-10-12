@@ -72,4 +72,19 @@ public class ParserTest {
             fail(exception);
         }
     }
+
+    @Test
+    public void failToParseSomeTextAsTheNumberOfFaces() {
+        String input = "text";
+        try {
+            parser.parse(input);
+            fail();
+        }
+        catch (InvalidNumberOfFacesException exception) {
+            return;
+        }
+        catch (Exception exception) {
+            fail(exception);
+        }
+    }
 }
