@@ -1,7 +1,7 @@
 package org.example.dice.formula;
 
-import java.time.Instant;
-import java.util.Random;
+import org.example.dice.DefaultRandomProvider;
+
 import java.util.function.Supplier;
 
 public class Die
@@ -11,9 +11,7 @@ public class Die
     public final int faces;
 
     public Die(int faces) {
-        Random random = new Random(Instant.now().toEpochMilli());
-        this.faces = faces;
-        this.randomProvider = random::nextDouble;
+        this(faces, new DefaultRandomProvider());
     }
 
     public Die(int faces, Supplier<Double> randomProvider) {
