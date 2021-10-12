@@ -1,10 +1,12 @@
-package org.example.dice.rolling;
+package org.example.dice.formula;
 
 import java.time.Instant;
 import java.util.Random;
 import java.util.function.Supplier;
 
-public class Die {
+public class Die
+    implements Formula
+{
     private final Supplier<Double> randomProvider;
     public final int faces;
 
@@ -19,7 +21,7 @@ public class Die {
         this.randomProvider = randomProvider;
     }
 
-    public Integer roll() {
+    public int roll() {
         return new Double(1 + this.randomProvider.get() * faces).intValue();
     }
 }

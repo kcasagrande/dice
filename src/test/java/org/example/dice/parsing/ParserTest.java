@@ -1,10 +1,11 @@
 package org.example.dice.parsing;
 
+import org.example.dice.formula.Die;
+import org.example.dice.formula.Formula;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParserTest {
     private Parser parser;
@@ -17,15 +18,17 @@ public class ParserTest {
     @Test
     public void parseAnIntAsTheNumberOfFaces() throws InvalidNumberOfFacesException {
         String input = "3";
-        int faces = parser.parse(input);
-        assertEquals(3, faces);
+        Formula formula = parser.parse(input);
+        assertTrue(formula instanceof Die);
+        assertEquals(3, ((Die) formula).faces);
     }
 
     @Test
     public void parseAnotherIntAsTheNumberOfFaces() throws InvalidNumberOfFacesException {
         String input = "6";
-        int faces = parser.parse(input);
-        assertEquals(6, faces);
+        Formula formula = parser.parse(input);
+        assertTrue(formula instanceof Die);
+        assertEquals(6, ((Die) formula).faces);
     }
 
     @Test

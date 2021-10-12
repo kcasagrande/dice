@@ -1,4 +1,4 @@
-package org.example.dice.rolling;
+package org.example.dice.formula;
 
 import org.junit.jupiter.api.Test;
 
