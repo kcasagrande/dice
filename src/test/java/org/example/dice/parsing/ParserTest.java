@@ -2,6 +2,7 @@ package org.example.dice.parsing;
 
 import org.example.dice.formula.Die;
 import org.example.dice.formula.Formula;
+import org.example.dice.formula.Sum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -88,6 +89,20 @@ public class ParserTest {
         }
         catch (Exception exception) {
             fail(exception);
+        }
+    }
+
+    @Test
+    public void parseANumberOfTheSameDiceAsASum() throws Exception {
+        String input = "3d6";
+        Formula formula = parser.parse(input);
+        assertTrue(formula instanceof Sum);
+        Sum sum = (Sum)formula;
+        assertEquals(3, sum.formulas.size());
+        for(int index = 0; index < 3; index++) {
+            assertTrue(sum.formulas.get(index) instanceof Die);
+            Die die = (Die)sum.formulas.get(index);
+            assertEquals(6, die.faces);
         }
     }
 }

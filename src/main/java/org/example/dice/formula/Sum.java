@@ -8,8 +8,12 @@ public class Sum
 {
     public final List<Formula> formulas;
 
+    public Sum(List<Formula> formulas) {
+        this.formulas = formulas;
+    }
+
     public Sum(Formula... formulas) {
-        this.formulas = Arrays.asList(formulas);
+        this(Arrays.asList(formulas));
     }
 
     @Override
