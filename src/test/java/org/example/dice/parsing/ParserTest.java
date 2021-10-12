@@ -57,4 +57,19 @@ public class ParserTest {
             fail();
         }
     }
+
+    @Test
+    public void failToParseAFloatAsTheNumberOfFaces() {
+        String input = "1.5";
+        try {
+            parser.parse(input);
+            fail();
+        }
+        catch (InvalidNumberOfFacesException exception) {
+            return;
+        }
+        catch (Exception exception) {
+            fail(exception);
+        }
+    }
 }
