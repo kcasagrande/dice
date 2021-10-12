@@ -1,6 +1,6 @@
 package org.example.dice.parsing;
 
-class Parser {
+public class Parser {
     public int parse(String command) throws InvalidNumberOfFacesException {
         try {
             int faces = Integer.parseInt(command);
